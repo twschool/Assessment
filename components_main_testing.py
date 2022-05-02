@@ -15,6 +15,23 @@ def yes_no_checker(question):
     return yes_no
 
 
+def options_checker(options_input):
+    if options_input == "A" or options_input == "B" or \
+                options_input == "C" or options_input == "D":
+        return True
+    else:
+        return False
+
+
+# Main routine
+while True:
+    response = input("Test input for A\B\C\D options checker\nResponse: ").upper()
+    if options_checker(response) is True:
+        print("Program continues")
+    else:
+        print("" "Error please enter 'A' or 'B' or 'C' or 'D'" "")
+
+
 def instructions():
     print("How to play:")
     print("This is a quiz game about testing your Māori knowledge")
@@ -37,6 +54,10 @@ def instructions():
 
 
 # Main routine
+numbers_stored = [["Tahi", 1], ["Rua", 2], ["Toru", 3], ["Whā", 4], ["Rima", 5],
+                  ["Ono", 6], ["Whitu", 7], ["Waru", 8], ["Iwa", 9], ["Tekau", 10]]
+
+
 name = input("What is your name: ").title()
 print(f"Hello {name} and welcome to the Māori language quiz")
 played_before = yes_no_checker("Have you played before: ")

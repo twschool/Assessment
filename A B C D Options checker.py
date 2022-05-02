@@ -14,7 +14,7 @@ def options_checker(options_input):
 # Main routine
 while True:
     response = input("Test input for A\B\C\D options checker\nResponse: ").upper()
-    if options_checker(response) == True:
+    if options_checker(response) is True:
         print("Program continues")
     else:
         print("" "Error please enter 'A' or 'B' or 'C' or 'D'" "")
