@@ -7,6 +7,7 @@ number_questions_stored_main = [["Tahi", 1], ["Rua", 2], ["Toru", 3], ["Whā", 4
                                 ["Ono", 6], ["Whitu", 7], ["Waru", 8], ["Iwa", 9], ["Tekau", 10]]
 
 
+# Random options function
 def generate_options(number_questions_stored):
     options = ["A", "B", "C", "D"]
 
@@ -37,9 +38,15 @@ def generate_options(number_questions_stored):
         temporary_list_2.append(option_picked[0])
 
     for count in range(0, 4):
+        # All the random answers are in a list in temporary_options_2 like this
+        # ["Actual answer", "Random", "Random", "Random"] since the correct answer is first
+        # in the list I created another list called random_options to resort everything into random
+        # order, so it would be easier to put them into options
         selected = random.choice(temporary_list_2)
         random_options.append(selected)
         temporary_list_2.remove(selected)
+        # Random_options is a list of random options and the correct answer in a random order
+        # This makes it easy to print it out randomly
     print(f"What is {correct_picked_answer} in Māori? ")
     print(f'(A) {random_options[0]}  \t(B) {random_options[1]}'
           f'\n(C) {random_options[2]}  \t(D) {random_options[3]}')
