@@ -32,7 +32,7 @@
       <recent name="C:\Users\Thoma\OneDrive - Middleton Grange School\2022\# Computer Science\AS91879 (1.7) Programming\Assessment" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.instructions v2">
+  <component name="RunManager" selected="Python.generate_random_options_v2">
     <configuration name="A B C D Options checker" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Assessment" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -54,7 +54,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="components_main_testing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="generate_random_options_v1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Assessment" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -66,7 +66,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\Thoma\OneDrive - Middleton Grange School\2022\# Computer Science\AS91879 (1.7) Programming\Assessment\components_main_testing.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/generate_random_options_v1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="generate_random_options_v2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Assessment" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/generate_random_options_v2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -119,10 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.generate_random_options_v2" />
+        <item itemvalue="Python.generate_random_options_v1" />
         <item itemvalue="Python.instructions v2" />
         <item itemvalue="Python.A B C D Options checker" />
         <item itemvalue="Python.yes_no_check v1" />
-        <item itemvalue="Python.components_main_testing" />
       </list>
     </recent_temporary>
   </component>
