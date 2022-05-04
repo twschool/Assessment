@@ -17,6 +17,7 @@ def instructions():
 def yes_no_checker(_question):
     while True:
         yes_no_input = input(f"{_question}").lower()
+        print()
 
         if yes_no_input == "yes" or yes_no_input == "y":
             yes_no = False
@@ -39,12 +40,11 @@ def options_checker(options_input):
         return False
 
 
-def generate_options(number_question_data):
+def generate_options(number_question_data, full_list_constant):
     options = ["A", "B", "C", "D"]
 
     question_picked = random.choice(number_question_data)
     number_questions_stored = number_question_data[:]
-    print(question_picked)
     # Question picked number is taking the second thing in the list eg: if the list
     # was ["Ono", 6] it would set itself to the number 6
     correct_picked_answer = question_picked[1]
@@ -53,7 +53,7 @@ def generate_options(number_question_data):
     # options this is the right one
     correct_option = question_picked[0]
     number_questions_stored.remove(question_picked)
-    temporary_list_1 = number_questions_stored
+    temporary_list_1 = full_list_constant[:]
     temporary_list_2 = []
     random_options = []
     temporary_list_2.append(correct_option)
@@ -68,6 +68,7 @@ def generate_options(number_question_data):
         # Temporary_list_2 is used to store all the 3 random options as well as the 1 correct answer
         # It picks the first thing in the list as it needs the name and not the correct number
         temporary_list_2.append(option_picked[0])
+    print(f" Temp list 1 {temporary_list_1}")
     for count in range(0, 4):
         # All the random answers are in a list in temporary_options_2 like this
         # ["Actual answer", "Random", "Random", "Random"] since the correct answer is first
@@ -78,13 +79,19 @@ def generate_options(number_question_data):
         temporary_list_2.remove(selected)
         # Random_options is a list of random options and the correct answer in a random order
         # This makes it easy to print it out randomly
-    print(f"What is {correct_picked_answer} in Māori? ")
-    print(f'(A) {random_options[0]}  \t(B) {random_options[1]}'
-          f'\n(C) {random_options[2]}  \t(D) {random_options[3]}')
-    user_input = input(f"Response:  ").upper()
+    while True:
+        print(f"What is {correct_picked_answer} in Māori? ")
+        print(f'(A) {random_options[0]}  \t(B) {random_options[1]}'
+              f'\n(C) {random_options[2]}  \t(D) {random_options[3]}')
+        user_input = input(f"Response:  ").upper()
+        print()
+        output_answer = options_checker(user_input)
+        if output_answer is True:
+            break
+        elif output_answer is not True:
+            print('''Please type a valid options ("A", "B", "C", or "D")''')
     find_correct_answer = random_options.index(correct_option)
     correct_answer = options[find_correct_answer]
-    print(f"{main_questions_stored} main questions stored")
     if correct_answer == user_input:
         return [True, question_picked]
     else:
@@ -98,6 +105,13 @@ number_questions_stored_main = [["Tahi", 1], ["Rua", 2], ["Toru", 3], ["Whā", 4
 days_of_the_week_stored_main = [["Rāhina", "Monday"], ["Rātū", "Tuesday"], ["Rāapa", "Wednesday"],
                                 ["Rāpare", "Thursday"], ["Rāmere", "Friday"],
                                 ["Rāhoroi", "Saturday"], ["Rātapu", "Sunday"]]
+number_questions_constant = [["Tahi", 1], ["Rua", 2], ["Toru", 3], ["Whā", 4], ["Rima", 5],
+                             ["Ono", 6], ["Whitu", 7], ["Waru", 8], ["Iwa", 9], ["Tekau", 10]]
+
+days_of_the_week_constant = [["Rāhina", "Monday"], ["Rātū", "Tuesday"], ["Rāapa", "Wednesday"],
+                             ["Rāpare", "Thursday"], ["Rāmere", "Friday"],
+                             ["Rāhoroi", "Saturday"], ["Rātapu", "Sunday"]]
+round_number = 1
 
 wrong_questions = []
 right_questions = []
@@ -112,11 +126,16 @@ while True:
                            "(1): Numbers\n"
                            "(2): Days of the week\n"
                            "Response: "))
+    print()
     if which_quiz == "1":
         main_questions_stored = number_questions_stored_main
+        main_questions_constant = number_questions_constant
+        repeat = 10
         break
     elif which_quiz == "2":
         main_questions_stored = days_of_the_week_stored_main
+        main_questions_constant = days_of_the_week_constant
+        repeat = 7
         break
     else:
         print('''Please answer either "1" or "2"''')
@@ -125,16 +144,28 @@ while True:
 #         return [True, "Nothing here", question_picked]
 #     else:
 #         return [False, question_picked, question_picked]
-round = 1
-for item in main_questions_stored:
-    print("Round {}".format(round))
-    round += 1
-    print(f"{main_questions_stored}")
-    options_output = generate_options(main_questions_stored)
-    print(f"{options_output} options output")
+for item in range(0, repeat):
+    print("Round {}".format(round_number))
+    round_number += 1
+    # print(f"{main_questions_stored}")
+    options_output = generate_options(main_questions_stored, main_questions_constant)
+    # print(f"{options_output} options output")
     question = options_output[1]
     main_questions_stored.remove(question)
     if options_output[0] is False:
         wrong_questions.append(question)
     else:
         right_questions.append(question)
+print("Wrong answers: ")
+print(wrong_questions)
+for wrong_list_number in range(0, len(wrong_questions)):
+    try:
+        wrong_answer = wrong_questions[wrong_list_number]
+        print(f"{wrong_answer[1]} in Māori is {wrong_answer[0]}")
+        wrong_questions.remove(wrong_answer)
+    except IndexError:
+        print("why")
+        break
+wrong_list_number = len(wrong_questions) + 1
+print(f"Wrong list num {wrong_list_number}")
+print(f"You got {wrong_list_number} out of {repeat}")
