@@ -2,7 +2,7 @@ import random
 import time
 
 game_start = time.time()
-"""Finished_program_v1 (All components combined to create the final program)"""
+"""[Finished_program_v1] (All components combined to create the final program)"""
 
 
 def instructions():

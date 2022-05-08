@@ -13,7 +13,7 @@ def options_checker(options_input):
 
 # Main routine
 while True:
-    response = input("Test input for A \ B \ C \ D options checker\nResponse: ").upper()
+    response = input("(A) (B) (C) (D) Response: ").upper()
     if options_checker(response) is True:
         print("Program continues")
     else:
