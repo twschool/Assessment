@@ -1,5 +1,7 @@
 import random
+import time
 
+game_start = time.time()
 """Finished_program_v1 (All components combined to create the final program)"""
 
 
@@ -57,6 +59,7 @@ def generate_options(number_question_data, full_list_constant):
     temporary_list_2 = []
     random_options = []
     temporary_list_2.append(correct_option)
+    temporary_list_1.remove(question_picked)
     # This means that the option picker will repeat 3 times (only 3 times because the correct
     # option has already been added
     for count in range(0, 3):
@@ -68,7 +71,6 @@ def generate_options(number_question_data, full_list_constant):
         # Temporary_list_2 is used to store all the 3 random options as well as the 1 correct answer
         # It picks the first thing in the list as it needs the name and not the correct number
         temporary_list_2.append(option_picked[0])
-    print(f" Temp list 1 {temporary_list_1}")
     for count in range(0, 4):
         # All the random answers are in a list in temporary_options_2 like this
         # ["Actual answer", "Random", "Random", "Random"] since the correct answer is first
@@ -81,8 +83,8 @@ def generate_options(number_question_data, full_list_constant):
         # This makes it easy to print it out randomly
     while True:
         print(f"What is {correct_picked_answer} in Māori? ")
-        print(f'(A) {random_options[0]}  \t(B) {random_options[1]}'
-              f'\n(C) {random_options[2]}  \t(D) {random_options[3]}')
+        print(f'(A) {random_options[0]} \t (B) {random_options[1]} \n'
+              f'(C) {random_options[2]} \t (D) {random_options[3]} ')
         user_input = input(f"Response:  ").upper()
         print()
         output_answer = options_checker(user_input)
@@ -105,12 +107,14 @@ number_questions_stored_main = [["Tahi", 1], ["Rua", 2], ["Toru", 3], ["Whā", 4
 days_of_the_week_stored_main = [["Rāhina", "Monday"], ["Rātū", "Tuesday"], ["Rāapa", "Wednesday"],
                                 ["Rāpare", "Thursday"], ["Rāmere", "Friday"],
                                 ["Rāhoroi", "Saturday"], ["Rātapu", "Sunday"]]
+
 number_questions_constant = [["Tahi", 1], ["Rua", 2], ["Toru", 3], ["Whā", 4], ["Rima", 5],
                              ["Ono", 6], ["Whitu", 7], ["Waru", 8], ["Iwa", 9], ["Tekau", 10]]
 
 days_of_the_week_constant = [["Rāhina", "Monday"], ["Rātū", "Tuesday"], ["Rāapa", "Wednesday"],
                              ["Rāpare", "Thursday"], ["Rāmere", "Friday"],
                              ["Rāhoroi", "Saturday"], ["Rātapu", "Sunday"]]
+
 round_number = 1
 
 wrong_questions = []
@@ -145,7 +149,7 @@ while True:
 #     else:
 #         return [False, question_picked, question_picked]
 for item in range(0, repeat):
-    print("Round {}".format(round_number))
+    print("Round {} out of {}".format(round_number, repeat))
     round_number += 1
     # print(f"{main_questions_stored}")
     options_output = generate_options(main_questions_stored, main_questions_constant)
@@ -156,16 +160,21 @@ for item in range(0, repeat):
         wrong_questions.append(question)
     else:
         right_questions.append(question)
-print("Wrong answers: ")
-print(wrong_questions)
-for wrong_list_number in range(0, len(wrong_questions)):
+print("Wrong answers: \n")
+# print(wrong_questions)
+length = len(wrong_questions)
+# print(f"This is the length {length}")
+for wrong_list_number in range(0, length):
     try:
-        wrong_answer = wrong_questions[wrong_list_number]
+        wrong_answer = wrong_questions[0]
         print(f"{wrong_answer[1]} in Māori is {wrong_answer[0]}")
         wrong_questions.remove(wrong_answer)
     except IndexError:
-        print("why")
+        print("This shouldn't be a problem contact Thomas for bug fixing")
         break
-wrong_list_number = len(wrong_questions) + 1
-print(f"Wrong list num {wrong_list_number}")
-print(f"You got {wrong_list_number} out of {repeat}")
+print()
+print(f"You got {round_number - length -1} out of {repeat}")
+print()
+print(f"You played for {(time.time() - game_start):.0f} seconds")
+print("Thanks for playing")
+print("Goodbye")
