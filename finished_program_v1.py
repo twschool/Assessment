@@ -10,10 +10,11 @@ def instructions():
     print("This is a quiz game about testing your Māori knowledge")
     print("This quiz is multiple choice\n")
     print("This is an example of the format the questions will be asked in\n")
-    print('(A): Wrong answer\t(B) Right answer'
+    print('(A) Wrong answer\t(B) Right answer'
           '\n(C) Wrong answer\t(D) Wrong answer\nThe right answer'
-          ' will not always be (B) this is just an example')
-    print("You have finished the instructions good luck\n")
+          ' will not always be (B) this is just an example\n'
+          'Answer "A", "B", "C", or "D" depending on which answer you think is correct')
+    print("You have finished the instructions good luck with the quiz\n")
 
 
 def yes_no_checker(_question):
