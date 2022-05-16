@@ -110,8 +110,7 @@ def generate_options(number_question_data, full_list_constant):
         if output_answer is True:
             break
         elif output_answer is not True:
-            print('''Please type a valid
-            options ("A", "B", "C", or "D")''')
+            print('Please type a valid option ("A", "B", "C", or "D")')
     find_correct_answer = random_options.index(correct_option)
     correct_answer = options[find_correct_answer]
     if correct_answer == user_input:
@@ -121,22 +120,25 @@ def generate_options(number_question_data, full_list_constant):
 
 
 # Main routine
+# The variable which the questions (number) that have been asked are taken out of
 number_questions_stored_main = [["Tahi", 1], ["Rua", 2],
                                 ["Toru", 3], ["Whā", 4],
                                 ["Rima", 5], ["Ono", 6],
                                 ["Whitu", 7], ["Waru", 8],
                                 ["Iwa", 9], ["Tekau", 10]]
-
+# The variable which the questions (weekdays) that have been asked are taken out of
 days_of_the_week_stored_main = [["Rāhina", "Monday"], ["Rātū", "Tuesday"],
                                 ["Rāapa", "Wednesday"],
                                 ["Rāpare", "Thursday"], ["Rāmere", "Friday"],
                                 ["Rāhoroi", "Saturday"], ["Rātapu", "Sunday"]]
-
+# This variable stores all the number
+# answers and is used for generating random options
 number_questions_constant = [["Tahi", 1], ["Rua", 2],
                              ["Toru", 3], ["Whā", 4], ["Rima", 5],
                              ["Ono", 6], ["Whitu", 7],
                              ["Waru", 8], ["Iwa", 9], ["Tekau", 10]]
-
+# This variable stores all the weekday
+# answers and is used for generating random options
 days_of_the_week_constant = [["Rāhina", "Monday"],
                              ["Rātū", "Tuesday"], ["Rāapa", "Wednesday"],
                              ["Rāpare", "Thursday"], ["Rāmere", "Friday"],
