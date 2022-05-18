@@ -1,9 +1,10 @@
+"""[Finished_program_v1] (All components
+combined to create the final program)"""
+
 import random
 import time
 
 game_start = time.time()
-"""[Finished_program_v1] (All components
-combined to create the final program)"""
 
 
 # This is the instructions function with a lot of print statements so far
